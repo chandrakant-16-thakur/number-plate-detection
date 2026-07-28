@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload Image
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-lg-4">
+
+        <div class="card shadow p-4">
+
+            <h5>Total Records</h5>
+
+            <h1 class="text-primary">{{ total }}</h1>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-8">
+
+        <div class="card shadow p-4">
+
+            <h3 class="mb-4">Upload Vehicle Image</h3>
+
+            <form action="/upload"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <input
+                    type="file"
+                    name="image"
+                    class="form-control"
+                    accept=".jpg,.jpeg,.png"
+                    required>
+
+                <br>
+
+                <button class="btn btn-primary w-100">
+
+                    Detect Number Plate
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

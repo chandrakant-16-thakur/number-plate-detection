@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row g-4">
+
+        <!-- Total Detection -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Total Detection</h6>
+                        <h2>{{ total }}</h2>
+                    </div>
+                    <i class="bi bi-car-front-fill fs-1 text-primary"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unique Plates -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Unique Plates</h6>
+                        <h2>{{ unique }}</h2>
+                    </div>
+                    <i class="bi bi-card-text fs-1 text-success"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today Detection -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Today's Detection</h6>
+                        <h2>{{ today }}</h2>
+                    </div>
+                    <i class="bi bi-calendar-check fs-1 text-warning"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Camera Status -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card shadow p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Camera Status</h6>
+                        <h2 class="text-success">Online</h2>
+                    </div>
+                    <i class="bi bi-camera-video-fill fs-1 text-danger"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow p-3">
+
+                <h4>Recent Detections</h4>
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                    <tr>
+
+                        <th>Image</th>
+                        <th>Plate</th>
+                        <th>Date</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for row in recent %}
+
+                    <tr>
+
+                        <td>
+                            <img src="/uploads/{{ row.image_name }}"
+                                 width="120"
+                                 class="img-thumbnail">
+                        </td>
+
+                        <td>{{ row.plate_number }}</td>
+
+                        <td>{{ row.date_time }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card shadow p-3">
+
+                <h4>System Status</h4>
+
+                <hr>
+
+                <p>✅ YOLO Model Loaded</p>
+
+                <p>✅ EasyOCR Ready</p>
+
+                <p>✅ Database Connected</p>
+
+                <p>✅ Flask Running</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

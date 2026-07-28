@@ -1,0 +1,7 @@
+flask
+ultralytics
+easyocr
+opencv-python
+reportlab
+playsound
+werkzeug
