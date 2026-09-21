@@ -1,7 +1,8 @@
-flask
+streamlit
 ultralytics
 easyocr
-opencv-python
+opencv-python-headless
 reportlab
-playsound
-werkzeug
+pandas
+pillow
+numpy
