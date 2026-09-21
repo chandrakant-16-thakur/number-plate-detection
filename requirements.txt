@@ -1,7 +1,7 @@
 streamlit
 ultralytics
 opencv-python-headless
-numpy
+numpy<2.3
 pandas
 Pillow
 Flask
